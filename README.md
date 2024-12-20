@@ -113,15 +113,11 @@ set -g @tmux2k-yellow '#f8c800' # change yellow color
 - `git`: Show Git branch and status information
 - `cpu`: Show CPU usage information
 - `cwd`: Show current working directory
-- `gpu`: Show GPU usage information
 - `ram`: Show RAM usage information
 - `network`: Show network status and statistics
-- `bandwidth`: Show network bandwidth usage
 - `ping`: Show network ping statistics
 - `time`: Show current time and date
-- `weather`: Show weather information
 - `window`: tmux window list
-- `pomodoro`: Shows pomodoro timer, needs [tmux-pomodoro-plus](https://github.com/olimorris/tmux-pomodoro-plus) (hit `prefix + p` to start)
 
 To customize plugins, I'll highly recommend checking out their respective scripts in the [scripts](./scripts) folder.
 
