@@ -9,7 +9,8 @@ get_ssid() {
     Linux)
         SSID=$(iwgetid -r)
         if [ -n "$SSID" ]; then
-            printf '%s' " $SSID"
+            truncated_ssid=$(echo "$SSID" | cut -c 1-7)
+            printf '%s' " $truncated_ssid"
         else
             echo '󰈀 Ethernet'
         fi
@@ -19,7 +20,8 @@ get_ssid() {
         device_name=$(networksetup -listallhardwareports | grep -A 1 Wi-Fi | grep Device | awk '{print $2}')
         SSID=$(networksetup -getairportnetwork "$device_name" | awk -F ": " '{print $2}')
         if [ -n "$SSID" ]; then
-            printf '%s' " $SSID"
+            truncated_ssid=$(echo "$SSID" | cut -c 1-7)
+            printf '%s' " $truncated_ssid"
         else
             echo '󰈀 Ethernet'
         fi
@@ -28,7 +30,6 @@ get_ssid() {
     CYGWIN* | MINGW32* | MSYS* | MINGW*) ;; # TODO - windows compatability
     esac
 }
-
 main() {
     network="Offline"
     for host in $HOSTS; do
